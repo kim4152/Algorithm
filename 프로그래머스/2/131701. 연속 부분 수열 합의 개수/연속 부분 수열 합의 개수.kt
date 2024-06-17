@@ -1,20 +1,21 @@
 class Solution {
     fun solution(elements: IntArray): Int {
-    val check = mutableSetOf<Int>()
     val n = elements.size
-    val dp = elements.toMutableList()
+    val sum = mutableSetOf<Int>()
 
-    check.addAll(dp)
-
-    for (i in 1 until n) {
-        for (j in dp.indices) {
-            dp[j] += elements[(i + j) % n]
+    for (length in 1..n) {
+        for (start in 0 until n) {
+            var a = 0
+            for (i in 0 until length) {
+                a += elements[(start + i) % n]
+            }
+            sum.add(a)
         }
-        check.addAll(dp)
     }
 
-    return check.size
+    return sum.size
 }
+
 
 
 }
