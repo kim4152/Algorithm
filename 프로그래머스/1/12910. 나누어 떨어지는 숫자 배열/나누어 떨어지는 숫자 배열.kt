@@ -4,7 +4,9 @@ class Solution {
         arr.forEach{it->
             if(it%divisor == 0) answer+=it
         }
+        
         if(answer.isEmpty()) answer+=-1
+        
         return answer.sorted().toIntArray()
     }
 }
